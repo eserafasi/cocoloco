@@ -14,18 +14,17 @@
       "id": "WELCOME_SCREEN",
       "title": "Buy Tickets",
       "terminal": false,
-      "success": true,
       "data": {},
       "layout": {
         "type": "SingleColumnLayout",
         "children": [
           {
             "type": "TextHeading",
-            "text": "Welcome to ticket sales"
+            "text": "Welcome to CocoloCo Shows"
           },
           {
             "type": "TextBody",
-            "text": "Choose a show and complete your purchase in a few steps."
+            "text": "Purchase tickets for upcoming shows in just a few steps."
           },
           {
             "type": "Footer",
@@ -44,11 +43,11 @@
       "id": "SHOW_SELECTION",
       "title": "Select a Show",
       "terminal": false,
-      "success": true,
       "data": {
         "show_id": "",
         "show_title": "",
-        "show_date": ""
+        "show_date": "",
+        "show_venue": ""
       },
       "layout": {
         "type": "SingleColumnLayout",
@@ -56,6 +55,10 @@
           {
             "type": "TextHeading",
             "text": "Which show would you like?"
+          },
+          {
+            "type": "TextBody",
+            "text": "Choose from the mockup schedule below."
           },
           {
             "type": "Form",
@@ -68,16 +71,16 @@
                 "required": true,
                 "options": [
                   {
-                    "id": "show-1",
-                    "title": "Show A"
+                    "id": "show-2024-11-02",
+                    "title": "Neon Nights — Nov 2, 2024 · Main Hall"
                   },
                   {
-                    "id": "show-2",
-                    "title": "Show B"
+                    "id": "show-2024-11-16",
+                    "title": "Indie Horizon — Nov 16, 2024 · Stage B"
                   },
                   {
-                    "id": "show-3",
-                    "title": "Show C"
+                    "id": "show-2024-12-07",
+                    "title": "Late Set Sessions — Dec 7, 2024 · Rooftop"
                   }
                 ]
               }
@@ -100,10 +103,10 @@
       "id": "TICKET_DETAILS",
       "title": "Tickets",
       "terminal": false,
-      "success": true,
       "data": {
         "ticket_quantity": 1,
-        "ticket_type": "general"
+        "ticket_type": "general",
+        "seat_section": "floor"
       },
       "layout": {
         "type": "SingleColumnLayout",
@@ -111,6 +114,10 @@
           {
             "type": "TextHeading",
             "text": "Choose ticket details"
+          },
+          {
+            "type": "TextBody",
+            "text": "Mock pricing: General $35, VIP $75."
           },
           {
             "type": "Form",
@@ -139,6 +146,22 @@
                     "title": "VIP"
                   }
                 ]
+              },
+              {
+                "type": "Select",
+                "name": "seat_section",
+                "label": "Section",
+                "required": true,
+                "options": [
+                  {
+                    "id": "floor",
+                    "title": "Floor"
+                  },
+                  {
+                    "id": "balcony",
+                    "title": "Balcony"
+                  }
+                ]
               }
             ]
           },
@@ -159,7 +182,6 @@
       "id": "CONTACT_DETAILS",
       "title": "Your Details",
       "terminal": false,
-      "success": true,
       "data": {
         "full_name": "",
         "email": "",
@@ -171,6 +193,10 @@
           {
             "type": "TextHeading",
             "text": "Who is the ticket for?"
+          },
+          {
+            "type": "TextBody",
+            "text": "Use the contact details that should receive the ticket."
           },
           {
             "type": "Form",
@@ -213,7 +239,6 @@
       "id": "PAYMENT_METHOD",
       "title": "Payment",
       "terminal": false,
-      "success": true,
       "data": {
         "payment_method": ""
       },
@@ -223,6 +248,10 @@
           {
             "type": "TextHeading",
             "text": "Select a payment method"
+          },
+          {
+            "type": "TextBody",
+            "text": "Mock checkout options for this flow demo."
           },
           {
             "type": "Form",
