@@ -1,0 +1,295 @@
+{
+  "data_api_version": "3.0",
+  "routing_model": {
+    "WELCOME_SCREEN": ["SHOW_SELECTION"],
+    "SHOW_SELECTION": ["TICKET_DETAILS"],
+    "TICKET_DETAILS": ["CONTACT_DETAILS"],
+    "CONTACT_DETAILS": ["PAYMENT_METHOD"],
+    "PAYMENT_METHOD": ["CONFIRMATION"],
+    "CONFIRMATION": []
+  },
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "WELCOME_SCREEN",
+      "title": "Buy Tickets",
+      "terminal": false,
+      "success": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Welcome to ticket sales"
+          },
+          {
+            "type": "TextBody",
+            "text": "Choose a show and complete your purchase in a few steps."
+          },
+          {
+            "type": "Footer",
+            "label": "Start",
+            "on-click-action": {
+              "name": "navigate",
+              "payload": {
+                "screen": "SHOW_SELECTION"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "SHOW_SELECTION",
+      "title": "Select a Show",
+      "terminal": false,
+      "success": true,
+      "data": {
+        "show_id": "",
+        "show_title": "",
+        "show_date": ""
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Which show would you like?"
+          },
+          {
+            "type": "Form",
+            "name": "show_selection",
+            "children": [
+              {
+                "type": "Select",
+                "name": "show_id",
+                "label": "Available shows",
+                "required": true,
+                "options": [
+                  {
+                    "id": "show-1",
+                    "title": "Show A"
+                  },
+                  {
+                    "id": "show-2",
+                    "title": "Show B"
+                  },
+                  {
+                    "id": "show-3",
+                    "title": "Show C"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "navigate",
+              "payload": {
+                "screen": "TICKET_DETAILS"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "TICKET_DETAILS",
+      "title": "Tickets",
+      "terminal": false,
+      "success": true,
+      "data": {
+        "ticket_quantity": 1,
+        "ticket_type": "general"
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Choose ticket details"
+          },
+          {
+            "type": "Form",
+            "name": "ticket_details",
+            "children": [
+              {
+                "type": "NumberInput",
+                "name": "ticket_quantity",
+                "label": "Quantity",
+                "min": 1,
+                "max": 10,
+                "required": true
+              },
+              {
+                "type": "Select",
+                "name": "ticket_type",
+                "label": "Ticket type",
+                "required": true,
+                "options": [
+                  {
+                    "id": "general",
+                    "title": "General admission"
+                  },
+                  {
+                    "id": "vip",
+                    "title": "VIP"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "navigate",
+              "payload": {
+                "screen": "CONTACT_DETAILS"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "CONTACT_DETAILS",
+      "title": "Your Details",
+      "terminal": false,
+      "success": true,
+      "data": {
+        "full_name": "",
+        "email": "",
+        "phone": ""
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Who is the ticket for?"
+          },
+          {
+            "type": "Form",
+            "name": "contact_details",
+            "children": [
+              {
+                "type": "TextInput",
+                "name": "full_name",
+                "label": "Full name",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "email",
+                "label": "Email",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "phone",
+                "label": "Phone number",
+                "required": true
+              }
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "navigate",
+              "payload": {
+                "screen": "PAYMENT_METHOD"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "PAYMENT_METHOD",
+      "title": "Payment",
+      "terminal": false,
+      "success": true,
+      "data": {
+        "payment_method": ""
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Select a payment method"
+          },
+          {
+            "type": "Form",
+            "name": "payment_method",
+            "children": [
+              {
+                "type": "Select",
+                "name": "payment_method",
+                "label": "Payment method",
+                "required": true,
+                "options": [
+                  {
+                    "id": "card",
+                    "title": "Credit or debit card"
+                  },
+                  {
+                    "id": "transfer",
+                    "title": "Bank transfer"
+                  },
+                  {
+                    "id": "cash",
+                    "title": "Pay at venue"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "navigate",
+              "payload": {
+                "screen": "CONFIRMATION"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "CONFIRMATION",
+      "title": "Confirmation",
+      "terminal": true,
+      "success": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Review and confirm"
+          },
+          {
+            "type": "TextBody",
+            "text": "We will confirm availability and send your ticket details."
+          },
+          {
+            "type": "Footer",
+            "label": "Complete Purchase",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
