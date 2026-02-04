@@ -1,0 +1,14 @@
+{
+  "name": "cocoloco-webhook",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimal WhatsApp webhook server with interactive menu response.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
